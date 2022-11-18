@@ -2,31 +2,24 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import Movies from "../../../components/movies";
+import { movieApi } from "../../../services/movieApi";
 
 function TvSeries() {
   const [series, setSeries] = useState();
   const router = useRouter();
-  const page = router.query.slug;
-  console.log(page);
+  const page = router.query.slug || 1;
 
-  const getSeries = async () => {
-    try {
-      const response = await axios("http://localhost:8080/tvSeries", {
-        params: { page },
-      });
-      if (response.status === 200) {
-        const {
-          data: { results },
-        } = response.data;
-        setSeries(results);
-      }
-    } catch (error) {
-      console.log(error);
+  useEffect(() => {
+    getMovies();
+  }, [page]);
+
+  const getMovies = async () => {
+    const data = await movieApi("tvSeries", page);
+    if (data) {
+      setSeries(data);
     }
   };
-  useEffect(() => {
-    getSeries();
-  }, [page]);
+
   return (
     <div>
       <Movies movies={series} pageType="tvSeries" />

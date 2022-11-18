@@ -6,12 +6,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { inputHandler, searchDataHandler } from "../redux/features/SearchSlice";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { searchApi } from "../services/movieApi";
 
 function Searchbar() {
-  const [searchInput, setSearchInput] = useState("");
+  const [searchInput, setSearchInput] = useState();
   const router = useRouter();
   const dispatch = useDispatch();
-  const { searchValue } = useSelector((state) => state.search);
+  const searchValue = useSelector((state) => state.search.searchValue);
 
   // debouncing searched value dispatch
   useEffect(() => {
@@ -24,24 +25,15 @@ function Searchbar() {
 
   // searchapi call when searched value will be set in redux
   useEffect(() => {
-    handleSearch();
+    if (searchValue) {
+      handleSearch();
+    }
   }, [searchValue]);
 
   // search api
   const handleSearch = async () => {
-    const options = {
-      method: "GET",
-      url: "http://localhost:8080/search/all",
-      params: {
-        keyword: searchValue,
-        page: 1,
-      },
-    };
-    const {
-      data: { data },
-    } = await axios(options);
+    const data = await searchApi(searchValue);
     if (data) {
-      // console.log(data);
       dispatch(searchDataHandler(data));
     }
   };
