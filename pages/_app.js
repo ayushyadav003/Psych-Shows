@@ -1,13 +1,13 @@
 import "../styles/globals.css";
 import { store } from "../redux/store";
 import { wrapper } from "../redux/store";
-import Layout from "../components/layout";
+import PageLayout from "../components/PageLayout";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Layout>
+    <PageLayout>
       <Component {...pageProps} />
-    </Layout>
+    </PageLayout>
   );
 }
 

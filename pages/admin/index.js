@@ -1,6 +1,5 @@
 import { useState } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
-import MovieDetail from "../../components/movieDeail/MovieDetail";
 import Searchbar from "../../widgets/Searchbar";
 import styles from "./adminPage.module.scss";
 import Input from "../../components/input/Input";
@@ -12,7 +11,6 @@ function Admin() {
     <div className={styles.adminContainer}>
       <Searchbar />
       <div className={styles.adminBodyContainer}>
-        <MovieDetail />
         <form className={styles.textFieldContainer}>
           <div
             style={{

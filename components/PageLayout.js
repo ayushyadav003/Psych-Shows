@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./header/Header";
 
-function Layout({ children }) {
+function PageLayout({ children }) {
   return (
     <>
       <Header />
@@ -10,4 +10,4 @@ function Layout({ children }) {
   );
 }
 
-export default Layout;
+export default PageLayout;
