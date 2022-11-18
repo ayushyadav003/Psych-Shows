@@ -1,6 +1,5 @@
 import { useState } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
-import Searchbar from "../../widgets/Searchbar";
 import styles from "./adminPage.module.scss";
 import Input from "../../components/input/Input";
 import { Button } from "@mui/material";
@@ -9,7 +8,6 @@ function Admin() {
   const [inputCount, setInputCount] = useState(5);
   return (
     <div className={styles.adminContainer}>
-      <Searchbar />
       <div className={styles.adminBodyContainer}>
         <form className={styles.textFieldContainer}>
           <div

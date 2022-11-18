@@ -1,5 +1,4 @@
 import "../styles/globals.css";
-import { store } from "../redux/store";
 import { wrapper } from "../redux/store";
 import PageLayout from "../components/PageLayout";
 
