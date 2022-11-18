@@ -1,0 +1,13 @@
+.headerContainer {
+  display: grid;
+  width: 100%;
+  align-items: center;
+  font-family: 'Knewave', cursive;
+  padding: 1rem 0;
+  .headerOptions {
+    margin: 1rem auto;
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+  }
+}
