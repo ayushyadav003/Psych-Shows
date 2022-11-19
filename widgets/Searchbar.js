@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styles from "./searchbar.module.scss";
-import SavedSearchIcon from "@mui/icons-material/SavedSearch";
 import SearchIcon from "@mui/icons-material/Search";
 import { useDispatch, useSelector } from "react-redux";
-import { inputHandler, searchDataHandler } from "../redux/features/SearchSlice";
-import axios from "axios";
+import { inputHandler, searchDataHandler } from "../redux/features/searchSlice";
 import { useRouter } from "next/router";
 import { searchApi } from "../services/movieApi";
 
