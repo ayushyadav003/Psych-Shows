@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { searchSlice } from "../features/SearchSlice";
+import { searchSlice } from "../features/searchSlice";
 import { createWrapper } from "next-redux-wrapper";
 
 const makeStore = () =>

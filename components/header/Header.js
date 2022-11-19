@@ -23,7 +23,9 @@ function Header() {
   return (
     <div className={styles.headerContainer}>
       <div className={styles.headerOptions}>
-        <span>Home</span>
+        <a href="/">
+          <span>Home</span>
+        </a>
         <a href="/movies/1">
           <span>Movies</span>
         </a>
