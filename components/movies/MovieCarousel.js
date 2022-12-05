@@ -20,7 +20,7 @@ function MovieCarousel({ activeGenre, type, other, heading }) {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
       items: 8,
-      slidesToSlide: 4,
+      slidesToSlide: 3,
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -30,7 +30,7 @@ function MovieCarousel({ activeGenre, type, other, heading }) {
     tablet: {
       breakpoint: { max: 1024, min: 464 },
       items: 5,
-      slidesToSlide: 1,
+      slidesToSlide: 3,
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
@@ -58,7 +58,7 @@ function MovieCarousel({ activeGenre, type, other, heading }) {
   return (
     <div style={{ margin: "0" }}>
       {loader ? (
-        <Skeleton variant="rectangular" width={600} height={50} />
+        <Skeleton variant="rectangular" width={300} height={50} />
       ) : (
         <Heading heading={heading} />
       )}
