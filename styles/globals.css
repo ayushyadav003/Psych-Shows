@@ -14,13 +14,16 @@ a {
   color: inherit;
   text-decoration: none;
 }
+.PageLayoutContainer {
+  margin: 0;
+}
 
 * {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+@media screen and (max-width: 768px) {
+  .PageLayoutContainer {
+    margin-bottom: 5rem;
   }
 }

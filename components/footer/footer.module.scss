@@ -1,0 +1,14 @@
+.footerContainer {
+  background-color: #0f0c29;
+  margin: 5rem 0 0 0;
+  text-align: center;
+  padding: 5px;
+  p {
+    color: gray;
+  }
+}
+@media screen and (max-width: 768px) {
+  .footerContainer {
+    margin-bottom: 3rem;
+  }
+}

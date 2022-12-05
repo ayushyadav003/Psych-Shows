@@ -13,7 +13,7 @@ function SelectedMovie() {
   }, [page]);
 
   const getMovies = async () => {
-    const data = await movieApi("movies", page);
+    const data = await movieApi("movies", { page: page });
     if (data) {
       setMovies(data);
     }

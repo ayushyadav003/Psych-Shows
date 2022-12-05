@@ -14,7 +14,7 @@ function TvSeries() {
   }, [page]);
 
   const getMovies = async () => {
-    const data = await movieApi("tvSeries", page);
+    const data = await movieApi("tvSeries", { page: page });
     if (data) {
       setSeries(data);
     }

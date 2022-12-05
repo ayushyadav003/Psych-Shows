@@ -10,12 +10,14 @@ function Searchbar() {
   const [searchInput, setSearchInput] = useState();
   const router = useRouter();
   const dispatch = useDispatch();
-  const searchValue = useSelector((state) => state.search.searchValue);
+  const { searchValue, searchData } = useSelector((state) => state.search);
 
   // debouncing searched value dispatch
   useEffect(() => {
     const handleInput = setTimeout(() => {
-      dispatch(inputHandler(searchInput));
+      if (searchInput) {
+        dispatch(inputHandler(searchInput));
+      }
     }, 1500);
 
     return () => clearTimeout(handleInput);
@@ -43,11 +45,16 @@ function Searchbar() {
 
   return (
     <div className={styles.searchBar}>
-      <input
-        placeholder="Search here..."
-        onChange={(e) => setSearchInput(e.target.value)}
-        onKeyDown={handleKeyDown}
-      />
+      <div style={{ width: "100%" }}>
+        <input
+          placeholder="Search here..."
+          onChange={(e) => setSearchInput(e.target.value)}
+          onKeyDown={handleKeyDown}
+        />
+        {/* {searchData?.results && searchInput && (
+          <div className={styles.searchResultContainer}>hiii</div>
+        )} */}
+      </div>
       <div className={styles.searchIcon}>
         <SearchIcon />
       </div>

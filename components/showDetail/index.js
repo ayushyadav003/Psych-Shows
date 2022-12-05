@@ -4,12 +4,11 @@ import styles from "./movieDetail.module.scss";
 // import DownloadOption from "./DownloadOption.";
 
 function ShowDetail() {
-  const [movies, setMovies] = useState();
   return (
     <div className={styles.movieDetailContainer}>
       {movies && (
         <div className={styles.inner1}>
-          <img src={movies.Poster} width="300" height="300" loading="lazy" />
+          {/* <img src={movies.Poster} width="300" height="300" loading="lazy"  /> */}
           <div className={styles.details}>
             <h1>{movies.Title}</h1>
             <p>{movies.Plot}</p>

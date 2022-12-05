@@ -1,11 +1,18 @@
 .searchBar {
   display: flex;
   justify-content: center;
-  align-items: center;
   margin-top: 20px;
+  position: relative;
+  width: 70%;
+  margin: auto;
+
+  .searchResultContainer {
+    background-color: #fff;
+  }
   input {
     padding: 10px;
-    width: 70%;
+    height: 3rem;
+    width: 100%;
     font-size: 18px;
     color: #fff;
     background-color: transparent;
@@ -16,9 +23,16 @@
   }
   .searchIcon {
     padding: 10px;
+    height: 3rem;
     font-size: 18px;
-    color: black;
+    color: #fff;
     border: 1px solid #fff;
-    background-color: #fff;
+    border-left: none;
+    // background-color: #fff;
+  }
+}
+@media screen and (max-width: 768px) {
+  .searchBar {
+    width: 85%;
   }
 }

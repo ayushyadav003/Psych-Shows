@@ -3,11 +3,101 @@
   width: 100%;
   align-items: center;
   font-family: 'Knewave', cursive;
-  padding: 1rem 0;
+  padding: 1rem;
+  .headerItemContainer {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .headerLogo:hover {
+    backface-visibility: visible !important;
+    animation: flip 3s ease infinite;
+  }
   .headerOptions {
-    margin: 1rem auto;
+    margin: 10px;
     display: flex;
     width: 80%;
     justify-content: space-between;
+  }
+  .headerOptions a:hover {
+    animation: gelatine 0.5s infinite;
+  }
+
+  @keyframes flip {
+    0% {
+      transform: perspective(400px) rotateY(0);
+      animation-timing-function: ease-out;
+    }
+    40% {
+      transform: perspective(400px) translateZ(150px) rotateY(170deg);
+      animation-timing-function: ease-out;
+    }
+    50% {
+      transform: perspective(400px) translateZ(150px) rotateY(190deg) scale(1);
+      animation-timing-function: ease-in;
+    }
+    80% {
+      transform: perspective(400px) rotateY(360deg) scale(0.95);
+      animation-timing-function: ease-in;
+    }
+    100% {
+      transform: perspective(400px) scale(1);
+      animation-timing-function: ease-in;
+    }
+  }
+
+  @keyframes gelatine {
+    from,
+    to {
+      transform: scale(1, 1);
+    }
+    25% {
+      transform: scale(0.9, 1.1);
+    }
+    50% {
+      transform: scale(1.1, 0.9);
+    }
+    75% {
+      transform: scale(0.95, 1.05);
+    }
+  }
+  .mobileNavigationBar {
+    display: none;
+  }
+}
+.headerMovileItemContainer {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .headerContainer {
+    display: flex;
+    .headerOptions {
+      display: none;
+    }
+    .mobileNavigationBar {
+      display: grid;
+      background: #302b63;
+      z-index: 999;
+      position: fixed;
+      align-items: center;
+      width: 100%;
+      margin: 0;
+      bottom: 0;
+      left: 0;
+      border-top: 1px solid whitesmoke;
+      .mobileNavigationBarItem {
+        display: flex;
+        font-size: 12px;
+        span {
+          width: 25vw;
+          display: flex;
+          height: 4rem;
+
+          justify-content: center;
+          align-items: center;
+          flex-flow: column;
+        }
+      }
+    }
   }
 }

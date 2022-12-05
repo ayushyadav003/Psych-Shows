@@ -1,41 +1,71 @@
-// import axios from "axios";
-
+// import { Drawer, Popover } from "@mui/material";
+// import MenuIcon from "@mui/icons-material/Menu";
+import Image from "next/image";
+import { useState } from "react";
 import Searchbar from "../../widgets/Searchbar";
+import { Home, LiveTv, Movie, PlaylistPlay } from "@mui/icons-material/";
 import styles from "./Header.module.scss";
-
-// const options = {
-//   method: 'GET',
-//   url: 'https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup',
-//   params: {term: 'bojack', country: 'uk'},
-//   headers: {
-//     'X-RapidAPI-Key': 'SIGN-UP-FOR-KEY',
-//     'X-RapidAPI-Host': 'utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com'
-//   }
-// };
-
-// axios(options).then(function (response) {
-// 	console.log(response.data);
-// }).catch(function (error) {
-// 	console.error(error);
-// });
+// import Home from "../../pages";
 
 function Header() {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const headerData = [
+    { name: "Home", url: "/", icon: <Home /> },
+    { name: "Movies", url: "/movies/1", icon: <Movie /> },
+    { name: "Tv series", url: "/tvSeries/1", icon: <LiveTv /> },
+    { name: "Watch Later", url: "/", icon: <PlaylistPlay /> },
+  ];
+
   return (
     <div className={styles.headerContainer}>
-      <div className={styles.headerOptions}>
-        <a href="/">
-          <span>Home</span>
-        </a>
-        <a href="/movies/1">
-          <span>Movies</span>
-        </a>
-        <a href="/tvSeries/1">
-          <span>Series</span>
-        </a>
-        <span>Watchlater</span>
+      <div className={styles.headerItemContainer}>
+        <div className={styles.headerLogo}>
+          <a href="/">
+            <Image src="/logo.png" width={60} height={60} />
+          </a>
+        </div>
+        <div className={styles.headerOptions}>
+          {headerData &&
+            headerData.map((data, i) => (
+              <a href={data.url} key={i}>
+                <span>{data.name}</span>
+              </a>
+            ))}
+        </div>
       </div>
+      {/* <div className={styles.headerMovileItemContainer}>
+        <MenuIcon onClick={() => setIsDrawerOpen(true)} />
+        <Drawer
+          anchor="right"
+          open={isDrawerOpen}
+          onClose={() => setIsDrawerOpen(false)}
+          style={{ width: "40vw" }}
+        >
+          {headerData &&
+            headerData.map((data, i) => (
+              <a href={data.url} key={i}>
+                <span style={{ fontSize: "20px", padding: "40px 30px" }}>
+                  {data.name}
+                </span>
+              </a>
+            ))}
+        </Drawer>
+      </div> */}
       <div className={styles.headerSearchBar}>
         <Searchbar />
+      </div>
+      <div className={styles.mobileNavigationBar}>
+        <div className={styles.mobileNavigationBarItem}>
+          {headerData &&
+            headerData.map((data, i) => (
+              <a href={data.url} key={i}>
+                <span>
+                  {data.icon}
+                  {data.name}
+                </span>
+              </a>
+            ))}
+        </div>
       </div>
     </div>
   );

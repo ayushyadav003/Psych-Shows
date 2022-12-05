@@ -5,4 +5,10 @@ module.exports = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
+  images: {
+    domains: ["image.tmdb.org"],
+  },
+  env: {
+    API_KEY: "aa0ebc34aeda48a1293cae35585884cf",
+  },
 };

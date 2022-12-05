@@ -1,0 +1,18 @@
+.homeContainer {
+  .homeCarouselSection {
+    margin-top: 2.5rem;
+  }
+  .btnStack {
+    display: flex;
+    margin-top: 4rem;
+    padding-right: 1rem;
+  }
+  .btnContainer {
+    display: flex;
+    overflow: auto;
+    margin: auto;
+  }
+  .indexCarouselContainer button {
+    background: gray;
+  }
+}

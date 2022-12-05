@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "./footer/Footer";
 import Header from "./header/Header";
 
 function PageLayout({ children }) {
@@ -6,6 +7,7 @@ function PageLayout({ children }) {
     <>
       <Header />
       <main>{children}</main>
+      <Footer />
     </>
   );
 }
