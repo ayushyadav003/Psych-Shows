@@ -1,10 +1,11 @@
 .footerContainer {
-  background-color: #0f0c29;
+  background-color: #000;
   margin: 5rem 0 0 0;
   text-align: center;
-  padding: 5px;
+  padding: 15px 5px;
   p {
     color: gray;
+    font-size: 10px;
   }
 }
 @media screen and (max-width: 768px) {

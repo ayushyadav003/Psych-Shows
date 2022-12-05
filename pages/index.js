@@ -111,28 +111,32 @@ export default function Home() {
             <Movie movie={leatestMovie} />
           </div> */}
           <div className={styles.homeCarouselSection}>
-            <Heading heading="Top Rated" />
             <div className={styles.indexCarouselContainer}>
               <MovieCarousel
                 other={true}
                 activeGenre="top_rated"
                 type="movies"
+                heading="Top Rated"
               />
             </div>
           </div>
           <div className={styles.homeCarouselSection}>
-            <Heading heading="Popular Movies" />
             <div className={styles.indexCarouselContainer}>
-              <MovieCarousel other={true} activeGenre="popular" type="movies" />
+              <MovieCarousel
+                other={true}
+                activeGenre="popular"
+                type="movies"
+                heading="Popular Movies"
+              />
             </div>
           </div>
           <div className={styles.homeCarouselSection}>
-            <Heading heading="Popular Series" />
             <div className={styles.indexCarouselContainer}>
               <MovieCarousel
                 other={true}
                 activeGenre="popular"
                 type="tvSeries"
+                heading="Popular Series"
               />
             </div>
           </div>

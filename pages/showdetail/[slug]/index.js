@@ -30,6 +30,16 @@ function ShowDetailPage() {
 
   return (
     <div className={styles.detailPageContainer}>
+      {showVideo && (
+        <div className={styles.detailShow}>
+          <iframe
+            ref={videoRef}
+            src={`https://www.2embed.to/embed/tmdb/movie?id=${detail.id}`}
+            title="W3Schools Free Online Web Tutorials"
+            allowFullScreen
+          ></iframe>
+        </div>
+      )}
       {detail && (
         <div>
           <div className={styles.detailPageInfo}>
@@ -63,8 +73,8 @@ function ShowDetailPage() {
                   target="_blank"
                 > */}
                 <Button
-                  variant="contained"
-                  style={{ background: "darkblue" }}
+                  variant="outlined"
+                  // style={{ background: "darkblue" }}
                   onClick={() => {
                     setShowVideo(true);
                     console.log(videoRef);
@@ -74,22 +84,12 @@ function ShowDetailPage() {
                   Watch Now <PlayCircle />
                 </Button>
                 {/* </Link> */}
-                <Button variant="contained">
+                <Button variant="outlined">
                   Watch Later <PlaylistAdd />
                 </Button>
               </div>
             </div>
           </div>
-          {showVideo && (
-            <div className={styles.detailShow}>
-              <iframe
-                ref={videoRef}
-                src={`https://www.2embed.to/embed/tmdb/movie?id=${detail.id}`}
-                title="W3Schools Free Online Web Tutorials"
-                allowFullScreen
-              ></iframe>
-            </div>
-          )}
         </div>
       )}
     </div>

@@ -21,7 +21,8 @@
     button {
       width: 100%;
       padding: 20px 0;
-      background-color: rgba(12, 87, 61, 0.632);
+      // background-color: rgba(12, 87, 61, 0.632);
+      background-color: whitesmoke;
       font-size: 18px;
       margin-top: 1rem;
       display: flex;
@@ -58,7 +59,7 @@
       text-align: center;
       p {
         width: 100%;
-        font-size: 18px;
+        font-size: 17px;
       }
       div {
         margin-top: 5vh;
@@ -67,7 +68,7 @@
       button {
         width: 100%;
         padding: 20px 0;
-        background-color: rgba(12, 87, 61, 0.632);
+        // background-color: rgba(12, 87, 61, 0.632);
         font-size: 18px;
         margin-top: 1rem;
         display: flex;
@@ -79,7 +80,7 @@
       justify-content: center;
       margin: 2rem auto;
       width: 90%;
-      height: 30vh;
+      height: 28vh;
       iframe {
         width: 100%;
       }

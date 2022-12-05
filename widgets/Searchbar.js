@@ -10,7 +10,7 @@ function Searchbar() {
   const [searchInput, setSearchInput] = useState();
   const router = useRouter();
   const dispatch = useDispatch();
-  const { searchValue, searchData } = useSelector((state) => state.search);
+  const { searchValue } = useSelector((state) => state.search);
 
   // debouncing searched value dispatch
   useEffect(() => {
@@ -51,8 +51,10 @@ function Searchbar() {
           onChange={(e) => setSearchInput(e.target.value)}
           onKeyDown={handleKeyDown}
         />
-        {/* {searchData?.results && searchInput && (
-          <div className={styles.searchResultContainer}>hiii</div>
+        {/* {poster_path ? (
+          <div className={styles.searchResultContainer}>
+            <img />
+          </div>
         )} */}
       </div>
       <div className={styles.searchIcon}>

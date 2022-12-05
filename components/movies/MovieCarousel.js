@@ -10,8 +10,9 @@ import { movieApi } from "../../services/movieApi";
 import Heading from "../heading/Heading";
 import styles from "../movies/Movies.module.scss";
 
-function MovieCarousel({ activeGenre, type, other }) {
+function MovieCarousel({ activeGenre, type, other, heading }) {
   const [moviesByGenre, setMoviesByGenre] = useState();
+  const [loader, setLoader] = useState();
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -19,18 +20,22 @@ function MovieCarousel({ activeGenre, type, other }) {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
       items: 8,
+      slidesToSlide: 4,
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
       items: 7,
+      slidesToSlide: 3,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
       items: 5,
+      slidesToSlide: 1,
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 2.7,
+      items: 2.6,
+      slidesToSlide: 2,
     },
   };
 
@@ -40,18 +45,24 @@ function MovieCarousel({ activeGenre, type, other }) {
 
   const getMoviesByGenre = async () => {
     if (activeGenre) {
+      setLoader(true);
       const data = await movieApi(
         type,
         other ? { main: activeGenre } : { with_genres: activeGenre }
       );
       setMoviesByGenre(data);
+      setLoader(false);
     }
   };
 
   return (
     <div style={{ margin: "0" }}>
-      {/* <Heading heading={genre} /> */}
-      {/* <h2 style={{ margin: "0 2rem" }}>{genre}</h2> */}
+      {loader ? (
+        <Skeleton variant="rectangular" width={600} height={50} />
+      ) : (
+        <Heading heading={heading} />
+      )}
+
       <Carousel
         responsive={responsive}
         removeArrowOnDeviceType={["tablet", "mobile"]}
@@ -88,7 +99,7 @@ function MovieCarousel({ activeGenre, type, other }) {
                 </div>
               );
             })
-          : [...Array(6)].map((item, i) => (
+          : [...Array(7)].map((item, i) => (
               <div className={styles.movieContainer} key={i}>
                 <div className={styles.card}>
                   <Skeleton />
