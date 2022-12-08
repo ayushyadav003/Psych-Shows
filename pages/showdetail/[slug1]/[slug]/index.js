@@ -5,36 +5,53 @@ import { useSelector } from "react-redux";
 import { Button } from "@mui/material";
 import { Details, PlayCircle, PlaylistAdd } from "@mui/icons-material";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { detailApi } from "../../../../services/movieApi";
 
 function ShowDetailPage() {
   const [detail, setDetail] = useState();
   const [showVideo, setShowVideo] = useState(false);
   const videoRef = useRef(null);
+  // const {
+  //   movieDetail: { movie },
+  // } = useSelector((state) => state);
+  const router = useRouter();
   const {
-    movieDetail: { movie },
-  } = useSelector((state) => state);
+    query: { slug1, slug },
+  } = router;
 
   useEffect(() => {
     handleDetail();
-  }, [movie]);
+  }, [slug]);
 
-  const handleDetail = () => {
-    setDetail(movie);
+  const handleDetail = async () => {
+    const data = await detailApi(slug1, slug);
+    if (data) {
+      setDetail(data);
+    }
+    console.log(detail);
   };
-  // const tmdbId = detail?.id;
-  // const title = detail?.title;
-  // const poster = detail?.poster_path;
-  // const overview = detail?.overview;
-  // const language = detail?.language;
-  // const release_date = detail?.release_date;
+  const yearExtractor = (date) => {
+    return date.split("-")[0];
+  };
+  const handleChannel = () => {
+    if (showVideo.toString().includes("tt")) {
+      return "imdb";
+    } else {
+      return "tmdb";
+    }
+  };
 
+  console.log(detail);
   return (
     <div className={styles.detailPageContainer}>
       {showVideo && (
         <div className={styles.detailShow}>
           <iframe
             ref={videoRef}
-            src={`https://www.2embed.to/embed/tmdb/movie?id=${detail.id}`}
+            src={`https://www.2embed.to/embed/${handleChannel(
+              showVideo
+            )}/movie?id=${showVideo}`}
             title="W3Schools Free Online Web Tutorials"
             allowFullScreen
           ></iframe>
@@ -49,11 +66,13 @@ function ShowDetailPage() {
                 width="100%"
                 height="100%"
                 alt={detail.title}
+                loading="lazy"
               />
             </div>
             <div className={styles.movieDetails}>
               <h1>
-                {detail.title}{" "}
+                {detail.title || detail.name}
+                {"  "}
                 <span
                   style={{
                     fontSize: "12px",
@@ -65,7 +84,9 @@ function ShowDetailPage() {
                   {detail.original_language}
                 </span>
               </h1>
-              <span>{detail.release_date}</span>
+              <span>
+                {yearExtractor(detail.release_date || detail.first_air_date)}
+              </span>
               <p>{detail.overview}</p>
               <div>
                 {/* <Link
@@ -76,8 +97,9 @@ function ShowDetailPage() {
                   variant="outlined"
                   // style={{ background: "darkblue" }}
                   onClick={() => {
-                    setShowVideo(true);
-                    console.log(videoRef);
+                    const videoId = detail.imdb_id || detail.id;
+                    setShowVideo(videoId);
+                    // console.log(videoRef);
                     videoRef?.current?.scrollIntoView({ behavior: "smooth" });
                   }}
                 >

@@ -10,7 +10,10 @@ function Searchbar() {
   const [searchInput, setSearchInput] = useState();
   const router = useRouter();
   const dispatch = useDispatch();
-  const { searchValue } = useSelector((state) => state.search);
+  const {
+    search: { searchValue },
+    movieDetail: { movie },
+  } = useSelector((state) => state);
 
   // debouncing searched value dispatch
   useEffect(() => {
@@ -42,6 +45,9 @@ function Searchbar() {
       router.push(`/search/${searchInput}`);
     }
   };
+  const handleSearchClick = (e) => {
+    router.push(`/search/${searchInput}`);
+  };
 
   return (
     <div className={styles.searchBar}>
@@ -57,7 +63,7 @@ function Searchbar() {
           </div>
         )} */}
       </div>
-      <div className={styles.searchIcon}>
+      <div className={styles.searchIcon} onClick={handleSearchClick}>
         <SearchIcon />
       </div>
     </div>

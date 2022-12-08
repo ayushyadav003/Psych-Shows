@@ -1,24 +1,8 @@
 import axios from "axios";
-// import dotenv from "dotenv";
-// dotenv.config();
 
 // const url = "https://dontdillydally.herokuapp.com/";
-const url = "http://localhost:8080/";
+// const url = "http://localhost:8080/";
 export const movieApi = async (endPoint, arg) => {
-  // try {
-  //   const response = await axios(url + endPoint, {
-  //     params: arg,
-  //   });
-  //   if (response) {
-  //     const {
-  //       data: { results },
-  //     } = response.data;
-  //     return results;
-  //   }
-  // } catch (error) {
-  //   console.log(error);
-  //   return [];
-  // }
   if (endPoint === "movies") {
     try {
       var query = arg;
@@ -34,7 +18,6 @@ export const movieApi = async (endPoint, arg) => {
         data: { results },
       } = await axios(options);
       if (results) {
-        console.log(results);
         return results;
       }
     } catch (error) {
@@ -66,20 +49,6 @@ export const movieApi = async (endPoint, arg) => {
 
 // search api
 export const searchApi = async (searchInput) => {
-  // const options = {
-  //   method: "GET",
-  //   url: `${url}search/all`,
-  //   params: {
-  //     keyword: searchInput,
-  //     page: 1,
-  //   },
-  // };
-  // const {
-  //   data: { data },
-  // } = await axios(options);
-  // if (data) {
-  //   return data;
-  // }
   try {
     const keyword = searchInput;
     // const page = req.query.page;
@@ -100,3 +69,39 @@ export const searchApi = async (searchInput) => {
     console.log("error...", error);
   }
 };
+export const detailApi = async (endPoint, movie_id) => {
+  if (endPoint === "movies") {
+    try {
+      const options = {
+        method: "GET",
+        url: `https://api.themoviedb.org/3/movie/${movie_id}`,
+        params: {
+          api_key: process.env.API_KEY,
+        },
+      };
+      const { data } = await axios(options);
+      if (data) {
+        return data;
+      }
+    } catch (error) {
+      console.log("error...", error);
+    }
+  } else {
+    try {
+      const options = {
+        method: "GET",
+        url: `https://api.themoviedb.org/3/tv/${movie_id}`,
+        params: {
+          api_key: process.env.API_KEY,
+        },
+      };
+      const { data } = await axios(options);
+      if (data) {
+        return data;
+      }
+    } catch (error) {
+      console.log("error...", error);
+    }
+  }
+};
+// https://api.themoviedb.org/3/movie/{movie_id}

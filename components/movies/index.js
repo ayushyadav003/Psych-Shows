@@ -9,25 +9,30 @@ import Image from "next/image";
 function Movies({ movies, pageType }) {
   const router = useRouter();
   const dispatch = useDispatch();
+
   return (
     <>
       <div className={styles.movieContainer}>
         {movies
           ? movies.map((movie, i) => {
-              const poster = movie.poster_path;
-              const title = movie?.original_name || movie?.original_title;
+              const poster = movie.poster_path || movie.backdrop_path;
+              const title =
+                movie?.title ||
+                movie?.name ||
+                movie?.original_title ||
+                movie?.original_name;
               return (
                 <div
                   key={i}
                   onClick={() => {
                     dispatch(currentMovie(movie));
-                    router.push(`/showdetail/${movie.original_title}`);
+                    router.push(`/showdetail/${pageType}/${movie.id}`);
                   }}
                 >
                   <div className={styles.card}>
                     <Image
                       src={`https://image.tmdb.org/t/p/w500/${poster}`}
-                      alt={movie.original_title}
+                      alt={title}
                       width="250"
                       height="250"
                       // loading="lazy"

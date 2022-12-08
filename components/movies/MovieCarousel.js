@@ -69,12 +69,16 @@ function MovieCarousel({ activeGenre, type, other, heading }) {
       >
         {moviesByGenre
           ? moviesByGenre.map((movie, i) => {
-              const title = movie?.original_title || movie?.original_name;
+              const title =
+                movie?.title ||
+                movie?.original_title ||
+                movie?.name ||
+                movie?.original_name;
               return (
                 <div
                   onClick={() => {
                     dispatch(currentMovie(movie));
-                    router.push(`/showdetail/${movie.original_title}`);
+                    router.push(`/showdetail/${type}/${movie.id}`);
                   }}
                   key={i}
                   className={styles.movieContainer}
