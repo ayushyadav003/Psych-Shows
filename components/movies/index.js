@@ -26,7 +26,9 @@ function Movies({ movies, pageType }) {
                   key={i}
                   onClick={() => {
                     dispatch(currentMovie(movie));
-                    router.push(`/showdetail/${pageType}/${movie.id}`);
+                    router.push(
+                      `/showdetail/${pageType || movie.media_type}/${movie.id}`
+                    );
                   }}
                 >
                   <div className={styles.card}>

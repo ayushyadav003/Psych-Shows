@@ -70,7 +70,7 @@ export const searchApi = async (searchInput) => {
   }
 };
 export const detailApi = async (endPoint, movie_id) => {
-  if (endPoint === "movies") {
+  if (endPoint === "movie") {
     try {
       const options = {
         method: "GET",

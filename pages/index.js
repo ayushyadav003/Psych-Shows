@@ -101,7 +101,7 @@ export default function Home() {
         />
         <meta
           name="keywords"
-          content="movies, tvShows, freemovies, latestmovies, netflix, prime, hulu, disney+hotstar"
+          content="movies,watchmoviesonline,watchnow, tvShows, freemovies, latestmovies, netflix, prime, hulu, disney+hotstar"
         />
         <meta content="website" property="og:type" />
 
@@ -119,7 +119,7 @@ export default function Home() {
               <MovieCarousel
                 other={true}
                 activeGenre="top_rated"
-                type="movies"
+                type="movie"
                 heading="Top Rated"
               />
             </div>
@@ -129,7 +129,7 @@ export default function Home() {
               <MovieCarousel
                 other={true}
                 activeGenre="popular"
-                type="movies"
+                type="movie"
                 heading="Popular Movies"
               />
             </div>
@@ -139,7 +139,7 @@ export default function Home() {
               <MovieCarousel
                 other={true}
                 activeGenre="popular"
-                type="tvSeries"
+                type="tv"
                 heading="Popular Series"
               />
             </div>

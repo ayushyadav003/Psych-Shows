@@ -1,39 +1,35 @@
+import axios from "axios";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Movies from "../../../components/movies";
 import { movieApi } from "../../../services/movieApi";
 
-function SelectedMovie() {
-  const [movies, setMovies] = useState([]);
+function TvSeries() {
+  const [series, setSeries] = useState();
   const router = useRouter();
   const page = router.query.slug || 1;
-
-  const endContainer = useRef(null);
 
   useEffect(() => {
     getMovies();
   }, [page]);
-
   const getMovies = async () => {
-    const data = await movieApi("movies", { page: page });
-
+    const data = await movieApi("tvSeries", { page: page });
     if (data) {
-      setMovies(data);
+      setSeries(data);
     }
   };
-  console.log(movies);
 
   return (
     <div>
       <Head>
-        <title>movies</title>
+        <title>tvSeries</title>
         <meta
           name="keywords"
           content={
-            movies &&
-            movies.map((movie) => {
-              let keyword = movie.title;
+            series &&
+            series.map((movie) => {
+              let keyword = movie.original_name || movie.name;
               return keyword;
             })
           }
@@ -49,10 +45,9 @@ function SelectedMovie() {
         />
         <meta content="website" property="og:type" />
       </Head>
-      <Movies movies={movies} pageType="movie" />
-      <div ref={endContainer}></div>
+      <Movies movies={series} pageType="tv" />
     </div>
   );
 }
 
-export default SelectedMovie;
+export default TvSeries;

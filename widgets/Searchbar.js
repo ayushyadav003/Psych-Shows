@@ -12,7 +12,6 @@ function Searchbar() {
   const dispatch = useDispatch();
   const {
     search: { searchValue },
-    movieDetail: { movie },
   } = useSelector((state) => state);
 
   // debouncing searched value dispatch

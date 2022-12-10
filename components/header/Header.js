@@ -12,7 +12,7 @@ function Header() {
   const headerData = [
     { name: "Home", url: "/", icon: <Home /> },
     { name: "Movies", url: "/movies/1", icon: <Movie /> },
-    { name: "Tv series", url: "/tvSeries/1", icon: <LiveTv /> },
+    { name: "Tv series", url: "/tv/1", icon: <LiveTv /> },
     { name: "Watch Later", url: "/", icon: <PlaylistPlay /> },
   ];
 
