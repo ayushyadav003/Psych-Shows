@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <PageLayout>
       <Component {...pageProps} />
-      {/* <Analytics /> */}
+      <Analytics />
     </PageLayout>
   );
 }
