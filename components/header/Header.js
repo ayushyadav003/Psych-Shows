@@ -21,7 +21,13 @@ function Header() {
       <div className={styles.headerItemContainer}>
         <div className={styles.headerLogo}>
           <a href="/">
-            <Image src="/logo.png" width={60} height={60} alt="psychshows" />
+            <Image
+              src="/logo1.webp"
+              width={60}
+              height={60}
+              alt="psychshows"
+              loading="lazy"
+            />
           </a>
         </div>
         <div className={styles.headerOptions}>

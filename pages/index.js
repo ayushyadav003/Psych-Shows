@@ -105,7 +105,7 @@ export default function Home() {
         />
         <meta content="website" property="og:type" />
 
-        <link rel="icon" href="logo.png" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
@@ -177,7 +177,7 @@ export default function Home() {
             </div>
           </div>
           <div className={styles.indexCarouselContainer}>
-            <MovieCarousel activeGenre={activeTvGenre} type="tvSeries" />
+            <MovieCarousel activeGenre={activeTvGenre} type="tv" />
           </div>
         </div>
       </main>

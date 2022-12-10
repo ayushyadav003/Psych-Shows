@@ -6,7 +6,7 @@ module.exports = {
     ignoreDuringBuilds: true,
   },
   images: {
-    domains: ["image.tmdb.org"],
+    domains: ["image.tmdb.org", "photos.google.com"],
   },
   env: {
     API_KEY: "aa0ebc34aeda48a1293cae35585884cf",

@@ -8,6 +8,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { detailApi } from "../../../../services/movieApi";
 import Head from "next/head";
+import Iframe from "react-iframe";
 
 function ShowDetailPage() {
   const [detail, setDetail] = useState();
@@ -68,22 +69,25 @@ function ShowDetailPage() {
       <div className={styles.detailPageContainer}>
         {showVideo && (
           <div className={styles.detailShow}>
-            <iframe
+            {/* <iframe
+              title={detail?.title || detail?.name}
+              allowFullScreen
+            ></iframe> */}
+            <Iframe
               ref={videoRef}
               src={
                 slug1 !== "tv"
-                  ? `https://www.2embed.to/embed/${handleChannel(
-                      showVideo
-                    )}/movie?id=${showVideo}`
-                  : `https://www.2embed.to/embed/${handleChannel(
-                      showVideo
-                    )}/tv?id=${showVideo} ID&s=${
+                  ? `https://vidsrc.me/embed/${showVideo}/`
+                  : `https://vidsrc.me/embed/${showVideo}/${
                       selectedSeason + 1
-                    }&e=${selectedEpisode}`
+                    }-${selectedEpisode}/`
               }
-              title={detail?.title || detail?.name}
+              className=""
+              display="block"
+              position="relative"
               allowFullScreen
-            ></iframe>
+              frameBorder="0"
+            />
           </div>
         )}
         {detail && (
@@ -121,7 +125,24 @@ function ShowDetailPage() {
                   <div className={styles.seasonContainer}>
                     <div>
                       {detail?.seasons.map((season, i) => {
-                        if (season.season_number === 0) {
+                        if (detail?.seasons.length === 1) {
+                          return (
+                            <span
+                              key={i}
+                              style={{
+                                background:
+                                  season.season_number === selectedSeason + 1
+                                    ? "grey"
+                                    : "transparent",
+                              }}
+                              onClick={() =>
+                                setSelectedSeason(season.season_number - 1)
+                              }
+                            >
+                              Season {season.season_number}
+                            </span>
+                          );
+                        } else if (season.season_number === 0) {
                           return null;
                         }
                         return (
@@ -146,7 +167,11 @@ function ShowDetailPage() {
                       <div>
                         {[
                           ...Array(
-                            detail?.seasons[selectedSeason + 1]?.episode_count
+                            detail?.seasons[
+                              detail?.seasons.length === 1
+                                ? selectedSeason
+                                : selectedSeason + 1
+                            ]?.episode_count
                           ),
                         ].map((e, i) => {
                           return (
