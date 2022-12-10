@@ -42,18 +42,17 @@ function ShowDetailPage() {
       return "tmdb";
     }
   };
-
   return (
     <>
       <Head>
         <title>{detail?.title || detail?.name}</title>
         <meta
           name="keywords"
-          content={`watch ${detail?.title || detail.name},watch full ${
-            detail?.title || detail.name
-          }, free online ${
-            detail?.title || detail.name
-          } free, watch free netflix movies,hulu, prime videos, disney + hotstar`}
+          content={`watch ${detail?.title || detail?.name},watch full ${
+            detail?.title || detail?.name
+          }, free online ${detail?.title || detail?.name} free,${
+            detail?.original_name || detail?.original_title
+          }, watch free netflix movies,hulu, prime videos, disney + hotstar`}
         />
         <meta content="https://www.psychshows.com/" property="og:url" />
         <meta
@@ -72,7 +71,7 @@ function ShowDetailPage() {
             <iframe
               ref={videoRef}
               src={
-                slug1 === "movie"
+                slug1 !== "tv"
                   ? `https://www.2embed.to/embed/${handleChannel(
                       showVideo
                     )}/movie?id=${showVideo}`
@@ -82,9 +81,8 @@ function ShowDetailPage() {
                       selectedSeason + 1
                     }&e=${selectedEpisode}`
               }
-              title={detail?.title || detail.name}
+              title={detail?.title || detail?.name}
               allowFullScreen
-              frameborder="0"
             ></iframe>
           </div>
         )}
@@ -122,28 +120,33 @@ function ShowDetailPage() {
                 {slug1 === "tv" && (
                   <div className={styles.seasonContainer}>
                     <div>
-                      {detail?.seasons.map((season, i) => (
-                        <span
-                          key={i}
-                          style={{
-                            background:
-                              season.season_number === selectedSeason + 1
-                                ? "grey"
-                                : "transparent",
-                          }}
-                          onClick={() =>
-                            setSelectedSeason(season.season_number - 1)
-                          }
-                        >
-                          Season {season.season_number}
-                        </span>
-                      ))}
+                      {detail?.seasons.map((season, i) => {
+                        if (season.season_number === 0) {
+                          return null;
+                        }
+                        return (
+                          <span
+                            key={i}
+                            style={{
+                              background:
+                                season.season_number === selectedSeason + 1
+                                  ? "grey"
+                                  : "transparent",
+                            }}
+                            onClick={() =>
+                              setSelectedSeason(season.season_number - 1)
+                            }
+                          >
+                            Season {season.season_number}
+                          </span>
+                        );
+                      })}
                     </div>
                     {detail?.seasons[selectedSeason]?.episode_count && (
                       <div>
                         {[
                           ...Array(
-                            detail.seasons[selectedSeason].episode_count
+                            detail?.seasons[selectedSeason + 1]?.episode_count
                           ),
                         ].map((e, i) => {
                           return (

@@ -21,7 +21,7 @@ function Header() {
       <div className={styles.headerItemContainer}>
         <div className={styles.headerLogo}>
           <a href="/">
-            <Image src="/logo.png" width={60} height={60} />
+            <Image src="/logo.png" width={60} height={60} alt="psychshows" />
           </a>
         </div>
         <div className={styles.headerOptions}>

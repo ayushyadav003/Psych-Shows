@@ -105,7 +105,7 @@ export default function Home() {
         />
         <meta content="website" property="og:type" />
 
-        <link rel="icon" href="/logo.png" />
+        <link rel="icon" href="logo.png" />
       </Head>
 
       <main>
@@ -114,22 +114,21 @@ export default function Home() {
           <div className={styles.indexCarouselContainer}>
             <Movie movie={leatestMovie} />
           </div> */}
-          <div className={styles.homeCarouselSection}>
+          {/* <div className={styles.homeCarouselSection}>
             <div className={styles.indexCarouselContainer}>
               <MovieCarousel
                 other={true}
                 activeGenre="top_rated"
-                type="movie"
                 heading="Top Rated"
               />
             </div>
-          </div>
+          </div> */}
           <div className={styles.homeCarouselSection}>
             <div className={styles.indexCarouselContainer}>
               <MovieCarousel
                 other={true}
                 activeGenre="popular"
-                type="movie"
+                type="movies"
                 heading="Popular Movies"
               />
             </div>
