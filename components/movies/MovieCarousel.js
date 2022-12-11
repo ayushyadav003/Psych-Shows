@@ -1,5 +1,6 @@
 import { Skeleton } from "@mui/material";
 import { padding } from "@mui/system";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
@@ -57,6 +58,22 @@ function MovieCarousel({ activeGenre, type, other, heading }) {
 
   return (
     <div style={{ margin: "0" }}>
+      <Head>
+        <meta
+          name="keywords"
+          content={
+            moviesByGenre &&
+            `${moviesByGenre.map((movie) => {
+              let keyword =
+                movie?.title ||
+                movie?.original_title ||
+                movie?.name ||
+                movie?.original_name;
+              return keyword;
+            })},movies,watch movies online,watch now, tvShows, free movies, latest movies, netflix, prime, hulu, disney+hotstar`
+          }
+        />
+      </Head>
       {loader ? (
         <Skeleton variant="rectangular" width={300} height={50} />
       ) : (
@@ -87,9 +104,9 @@ function MovieCarousel({ activeGenre, type, other, heading }) {
                   <div className={styles.card}>
                     <img
                       src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                      alt={movie.original_title}
+                      alt={title}
                       width="200"
-                      height="100%"
+                      height="100"
                       loading="lazy"
                     />
                     <div className={styles.inner}>

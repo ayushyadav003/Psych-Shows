@@ -11,7 +11,7 @@ function Header() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const headerData = [
     { name: "Home", url: "/", icon: <Home /> },
-    { name: "Movies", url: "/movies/1", icon: <Movie /> },
+    { name: "Movies", url: "/movie/1", icon: <Movie /> },
     { name: "Tv series", url: "/tv/1", icon: <LiveTv /> },
     { name: "Watch Later", url: "/", icon: <PlaylistPlay /> },
   ];

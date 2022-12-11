@@ -11,7 +11,7 @@ export const movieApi = async (endPoint, arg) => {
         method: "GET",
         url: arg.main
           ? `https://api.themoviedb.org/3/movie/${arg.main}`
-          : `https://api.themoviedb.org/3/discover/movie?&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&&with_watch_monetization_types=flatrate`,
+          : `https://api.themoviedb.org/3/discover/movie?&sort_by=popularity.desc&include_adult=false&include_video=false&&with_watch_monetization_types=flatrate`,
         params: query,
       };
       const {

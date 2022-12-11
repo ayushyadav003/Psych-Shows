@@ -102,7 +102,7 @@ export default function Home() {
         />
         <meta
           name="keywords"
-          content="movies,watchmoviesonline,watchnow, tvShows, freemovies, latestmovies, netflix, prime, hulu, disney+hotstar"
+          content="movies,watch movies online,watchnow, tvShows, freemovies, latestmovies, netflix, prime, hulu, disney+hotstar"
         />
         <meta content="website" property="og:type" />
 
@@ -186,20 +186,3 @@ export default function Home() {
     </div>
   );
 }
-
-// export async function getServerSideProps() {
-//       var query = arg;
-//       query.api_key = process.env.API_KEY;
-//       const options = {
-//         method: "GET",
-//         url: arg.main
-//           ? `https://api.themoviedb.org/3/movie/${arg.main}`
-//           : `https://api.themoviedb.org/3/discover/movie?&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&&with_watch_monetization_types=flatrate`,
-//         params: query,
-//       };
-//       const {
-//         data: { results },
-//       } = await axios(options);
-
-//   return { props: { results } };
-// }
