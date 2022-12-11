@@ -1,3 +1,4 @@
+import { fontSize } from "@mui/system";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import ButtonStack from "../components/buttonStack/ButtonStack";
@@ -105,7 +106,7 @@ export default function Home() {
         />
         <meta content="website" property="og:type" />
 
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/images/logo2.webp" />
       </Head>
 
       <main>
@@ -144,7 +145,8 @@ export default function Home() {
             </div>
           </div>
           <div className={styles.btnStack}>
-            <Heading heading="Movies" />
+            {/* <Heading heading="Movies" /> */}
+            <h1 style={{ margin: "0 1rem", fontSize: "1.5em" }}>Movies</h1>
             <div className={styles.btnContainer}>
               {genres &&
                 genres.map((genre, i) => (

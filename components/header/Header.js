@@ -22,7 +22,7 @@ function Header() {
         <div className={styles.headerLogo}>
           <a href="/">
             <Image
-              src="/logo1.webp"
+              src="/images/logo2.webp"
               width={60}
               height={60}
               alt="psychshows"
