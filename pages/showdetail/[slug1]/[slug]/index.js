@@ -69,11 +69,9 @@ function ShowDetailPage() {
       <div className={styles.detailPageContainer}>
         {showVideo && (
           <div className={styles.detailShow}>
-            {/* <iframe
+            <iframe
               title={detail?.title || detail?.name}
               allowFullScreen
-            ></iframe> */}
-            <Iframe
               ref={videoRef}
               src={
                 slug1 !== "tv"
@@ -82,12 +80,7 @@ function ShowDetailPage() {
                       selectedSeason + 1
                     }-${selectedEpisode}/`
               }
-              className=""
-              display="block"
-              position="relative"
-              allowFullScreen
-              frameBorder="0"
-            />
+            ></iframe>
           </div>
         )}
         {detail && (
