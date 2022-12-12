@@ -13,6 +13,7 @@ import styles from "../movies/Movies.module.scss";
 
 function MovieCarousel({ activeGenre, type, other, heading }) {
   const [moviesByGenre, setMoviesByGenre] = useState();
+  const [allMovieData, setAllMovieData] = useState();
   const [loader, setLoader] = useState();
   const dispatch = useDispatch();
   const router = useRouter();
@@ -36,7 +37,7 @@ function MovieCarousel({ activeGenre, type, other, heading }) {
     mobile: {
       breakpoint: { max: 464, min: 0 },
       items: 2.6,
-      slidesToSlide: 2,
+      slidesToSlide: 2.6,
     },
   };
 
@@ -56,6 +57,11 @@ function MovieCarousel({ activeGenre, type, other, heading }) {
     }
   };
 
+  useEffect(() => {
+    if (allMovieData) {
+      console.log(allMovieData);
+    }
+  });
   return (
     <div style={{ margin: "0" }}>
       <Head>

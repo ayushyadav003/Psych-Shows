@@ -1,4 +1,5 @@
 import { fontSize } from "@mui/system";
+import axios from "axios";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import ButtonStack from "../components/buttonStack/ButtonStack";
@@ -94,16 +95,16 @@ export default function Home() {
         <meta content="https://www.psychshows.com/" property="og:url" />
         <meta
           name="description"
-          content="Watch latest movies and tv series from for free, watch any mvie and tv series of netflix hulu prime videos disney + hotstar  anytime on you mobile, tablet, pc for free"
+          content="Watch latest movies and tv series for free, watch any movie or show of netflix hulu prime videos disney + hotstar  anytime on your mobile, tablet, pc for free"
         />
         <meta
           property="og:title"
           content={"psychshows - free movies and tv shows"}
         />
-        <meta
+        {/* <meta
           name="keywords"
           content="movies,watch movies online,watchnow, tvShows, freemovies, latestmovies, netflix, prime, hulu, disney+hotstar"
-        />
+        /> */}
         <meta content="website" property="og:type" />
 
         <link rel="icon" href="/images/logo2.webp" />
@@ -186,3 +187,12 @@ export default function Home() {
     </div>
   );
 }
+
+// export async function getServerSideProps() {
+//   // Fetch data from external API
+//   const res = await axios(`https://.../data`);
+//   const data = await res.json();
+
+//   // Pass data to the page via props
+//   return { props: { data } };
+// }
