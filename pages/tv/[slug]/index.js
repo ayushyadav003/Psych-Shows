@@ -23,7 +23,7 @@ function TvSeries() {
   return (
     <div>
       <Head>
-        <title>tvSeries</title>
+        <title>Psych shows - tvSeries</title>
         <meta
           name="keywords"
           content={
@@ -34,10 +34,11 @@ function TvSeries() {
             })
           }
         />
+        <meta name="robots" content="index" />
         <meta content="https://www.psychshows.com/" property="og:url" />
         <meta
           name="description"
-          content="Watch latest movies and tv series from for free, watch any mvie and tv series of netflix hulu prime videos disney + hotstar  anytime on you mobile, tablet, pc for free"
+          content="Watch latest movies and tv series from for free, watch any movie and tv series of netflix hulu prime videos disney + hotstar  anytime on you mobile, tablet, pc for free"
         />
         <meta
           property="og:title"

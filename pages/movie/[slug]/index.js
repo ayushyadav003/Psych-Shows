@@ -27,7 +27,8 @@ function SelectedMovie() {
   return (
     <div>
       <Head>
-        <title>movies</title>
+        <title>Psych shows - movies</title>
+
         <meta
           name="keywords"
           content={
@@ -38,6 +39,7 @@ function SelectedMovie() {
             })
           }
         />
+        <meta name="robots" content="index" />
         <meta content="https://www.psychshows.com/" property="og:url" />
         <meta
           name="description"

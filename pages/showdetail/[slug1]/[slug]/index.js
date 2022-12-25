@@ -8,7 +8,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { detailApi } from "../../../../services/movieApi";
 import Head from "next/head";
-import Iframe from "react-iframe";
 
 function ShowDetailPage() {
   const [detail, setDetail] = useState();
@@ -43,6 +42,18 @@ function ShowDetailPage() {
       return "tmdb";
     }
   };
+  // let getWatchlist = localStorage.getItem("watchlist");
+  // const handleWatchList = () => {
+  //   const id = detail.imdb_id || detail.id;
+  //   if (getWatchlist) {
+  //     getWatchlist.push(id);
+  //     localStorage.setItem("watchlist", getWatchlist);
+  //   } else {
+  //     let watchlist = [id];
+  //     localStorage.setItem("watchlist", watchlist);
+  //   }
+  //   console.log(getWatchlist);
+  // };
   return (
     <>
       <Head>
