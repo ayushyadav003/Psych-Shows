@@ -107,6 +107,7 @@ export default function Home() {
         /> */}
         <meta content="website" property="og:type" />
         <meta name="robots" content="index" />
+        <meta http-equiv="content-language" content="en" />
         <link rel="icon" href="/images/logo2.webp" />
       </Head>
 
