@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import styles from "./searchbar.module.scss";
-import SearchIcon from "@mui/icons-material/Search";
+import { Search, Close, ArrowRight } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { inputHandler, searchDataHandler } from "../redux/features/searchSlice";
 import { useRouter } from "next/router";
+import CircularProgress from "@mui/material/CircularProgress";
 import { searchApi } from "../services/movieApi";
 
 function Searchbar() {
-  const [searchInput, setSearchInput] = useState();
+  const [searchInput, setSearchInput] = useState("");
+  const [searchData, setSearchData] = useState();
   const router = useRouter();
   const dispatch = useDispatch();
   const {
@@ -20,7 +22,7 @@ function Searchbar() {
       if (searchInput) {
         dispatch(inputHandler(searchInput));
       }
-    }, 1500);
+    }, 700);
 
     return () => clearTimeout(handleInput);
   }, [searchInput]);
@@ -37,6 +39,7 @@ function Searchbar() {
     const data = await searchApi(searchValue);
     if (data) {
       dispatch(searchDataHandler(data));
+      setSearchData(data);
     }
   };
   const handleKeyDown = (e) => {
@@ -55,15 +58,41 @@ function Searchbar() {
           placeholder="Search here..."
           onChange={(e) => setSearchInput(e.target.value)}
           onKeyDown={handleKeyDown}
+          value={searchInput}
         />
-        {/* {poster_path ? (
+        {searchInput && (
           <div className={styles.searchResultContainer}>
-            <img />
+            <span>
+              show all <ArrowRight />
+            </span>
+            {searchData ? (
+              searchData.results.slice(0, 5).map((data, i) => {
+                let url = data.poster_path;
+                return (
+                  <img
+                    className={styles.searchResultItem}
+                    key={i}
+                    src={`https://image.tmdb.org/t/p/w500/${url}`}
+                    width="150"
+                  />
+                );
+              })
+            ) : (
+              <div>
+                <CircularProgress />
+              </div>
+            )}
           </div>
-        )} */}
+        )}
       </div>
+      {searchInput && (
+        <div className={styles.closeIcon} onClick={() => setSearchInput("")}>
+          <Close />
+        </div>
+      )}
+
       <div className={styles.searchIcon} onClick={handleSearchClick}>
-        <SearchIcon />
+        <Search />
       </div>
     </div>
   );
