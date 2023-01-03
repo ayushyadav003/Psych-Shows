@@ -19,6 +19,8 @@
     "axios": "^1.1.3",
     "dotenv": "^16.0.3",
     "fs": "^0.0.1-security",
+    "install": "^0.13.0",
+    "jquery": "^3.6.3",
     "next": "13.0.2",
     "next-redux-wrapper": "^8.0.0",
     "react": "18.2.0",
