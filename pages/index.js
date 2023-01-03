@@ -91,7 +91,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Psych Shows</title>
+        <title>Psych Shows - stream movies & series for free</title>
         <meta content="https://www.psychshows.com/" property="og:url" />
         <meta
           name="description"
@@ -106,7 +106,8 @@ export default function Home() {
           content="movies,watch movies online,watchnow, tvShows, freemovies, latestmovies, netflix, prime, hulu, disney+hotstar"
         /> */}
         <meta content="website" property="og:type" />
-
+        <meta name="robots" content="index" />
+        <meta http-equiv="content-language" content="en" />
         <link rel="icon" href="/images/logo2.webp" />
       </Head>
 
