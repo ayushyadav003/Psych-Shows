@@ -60,7 +60,7 @@ function Searchbar() {
           onKeyDown={handleKeyDown}
           value={searchInput}
         />
-        {searchInput && (
+        {/* {searchInput && (
           <div className={styles.searchResultContainer}>
             <span>
               show all <ArrowRight />
@@ -83,7 +83,7 @@ function Searchbar() {
               </div>
             )}
           </div>
-        )}
+        )} */}
       </div>
       {searchInput && (
         <div className={styles.closeIcon} onClick={() => setSearchInput("")}>
