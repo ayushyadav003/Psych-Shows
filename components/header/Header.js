@@ -25,7 +25,7 @@ function Header() {
               src="/images/logo2.webp"
               width={60}
               height={60}
-              alt="psychshows"
+              alt="pikashow"
               loading="lazy"
             />
           </a>

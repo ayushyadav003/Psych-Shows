@@ -8,98 +8,98 @@ import Movie from "../components/movies";
 import MovieCarousel from "../components/movies/MovieCarousel";
 import { movieApi } from "../services/movieApi";
 import styles from "../styles/Home.module.scss";
+const genres = [
+  {
+    id: 35,
+    name: "Comedy",
+  },
+  {
+    id: 18,
+    name: "Drama",
+  },
+  {
+    id: 28,
+    name: "Action",
+  },
+  {
+    id: 12,
+    name: "Adventure",
+  },
+  {
+    id: 16,
+    name: "Animation",
+  },
+
+  {
+    id: 10749,
+    name: "Romance",
+  },
+  {
+    id: 878,
+    name: "Science Fiction",
+  },
+  {
+    id: 53,
+    name: "Thriller",
+  },
+];
+
+const tvGenres = [
+  {
+    id: 10759,
+    name: "Action & Adventure",
+  },
+  {
+    id: 16,
+    name: "Animation",
+  },
+  {
+    id: 35,
+    name: "Comedy",
+  },
+  {
+    id: 80,
+    name: "Crime",
+  },
+  {
+    id: 99,
+    name: "Documentary",
+  },
+  {
+    id: 18,
+    name: "Drama",
+  },
+  {
+    id: 10751,
+    name: "Family",
+  },
+  {
+    id: 10764,
+    name: "Reality",
+  },
+  {
+    id: 10765,
+    name: "Sci-Fi & Fantasy",
+  },
+];
 
 export default function Home() {
   const [activeGenre, setActiveGenre] = useState(35);
   const [activeTvGenre, setActiveTvGenre] = useState(10759);
   // const [leatestMovie, setLatestMovie] = useState([]);
-  const genres = [
-    {
-      id: 35,
-      name: "Comedy",
-    },
-    {
-      id: 18,
-      name: "Drama",
-    },
-    {
-      id: 28,
-      name: "Action",
-    },
-    {
-      id: 12,
-      name: "Adventure",
-    },
-    {
-      id: 16,
-      name: "Animation",
-    },
-
-    {
-      id: 10749,
-      name: "Romance",
-    },
-    {
-      id: 878,
-      name: "Science Fiction",
-    },
-    {
-      id: 53,
-      name: "Thriller",
-    },
-  ];
-
-  const tvGenres = [
-    {
-      id: 10759,
-      name: "Action & Adventure",
-    },
-    {
-      id: 16,
-      name: "Animation",
-    },
-    {
-      id: 35,
-      name: "Comedy",
-    },
-    {
-      id: 80,
-      name: "Crime",
-    },
-    {
-      id: 99,
-      name: "Documentary",
-    },
-    {
-      id: 18,
-      name: "Drama",
-    },
-    {
-      id: 10751,
-      name: "Family",
-    },
-    {
-      id: 10764,
-      name: "Reality",
-    },
-    {
-      id: 10765,
-      name: "Sci-Fi & Fantasy",
-    },
-  ];
 
   return (
     <div>
       <Head>
-        <title>Psych Shows - stream movies & series for free</title>
-        <meta content="https://www.psychshows.com/" property="og:url" />
+        <title>Pikashow - stream movies & series for free</title>
+        <meta content="https://www.pikashow.co/" property="og:url" />
         <meta
           name="description"
           content="Watch latest movies and tv series for free, watch any movie or show of netflix hulu prime videos disney + hotstar  anytime on your mobile, tablet, pc for free"
         />
         <meta
           property="og:title"
-          content={"psychshows - free movies and tv shows"}
+          content={"pikasshow - free movies and tv shows"}
         />
         {/* <meta
           name="keywords"
