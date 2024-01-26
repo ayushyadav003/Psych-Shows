@@ -27,7 +27,7 @@ function SelectedMovie() {
   return (
     <div>
       <Head>
-        <title>Psych shows - movies</title>
+        <title>Pikashow - movies & web series</title>
 
         <meta
           name="keywords"
@@ -40,14 +40,14 @@ function SelectedMovie() {
           }
         />
         <meta name="robots" content="index" />
-        <meta content="https://www.psychshows.com/" property="og:url" />
+        <meta content="https://www.pikashow.co/" property="og:url" />
         <meta
           name="description"
           content="Watch latest movies and tv series from for free, watch any mvie and tv series of netflix hulu prime videos disney + hotstar  anytime on you mobile, tablet, pc for free"
         />
         <meta
           property="og:title"
-          content={"psychshows - free movies and tv shows"}
+          content={"pikashow.co - free movies and tv shows"}
         />
         <meta content="website" property="og:type" />
       </Head>
