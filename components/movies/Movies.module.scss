@@ -6,8 +6,8 @@
   margin-top: 3rem;
   text-align: center;
   .card {
-    width: 200px;
-    height: 280px;
+    width: 220px;
+    height: 290px;
     padding: 5px 5px 0 5px;
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.636);
@@ -30,9 +30,13 @@
       justify-content: center;
       width: 100%;
       h2 {
-        font-size: 14px;
+        font-size: 16px;
         font-weight: 600;
-        margin: 0 auto;
+        // white-space: wrap;
+        width: 180px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       p {
         color: gray;

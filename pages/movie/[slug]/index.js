@@ -22,7 +22,6 @@ function SelectedMovie() {
       setMovies(data);
     }
   };
-  console.log(movies);
 
   return (
     <div>
