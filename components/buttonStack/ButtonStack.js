@@ -8,8 +8,7 @@ function ButtonStack({ genre, setActiveGenre, activeGenre }) {
       <Button
         variant="contained"
         style={{
-          background: activeGenre === genre.id ? "gold" : "#fff",
-          color: "#000",
+          background: activeGenre === genre.id ? "gold" : "aliceblue",
         }}
         onClick={() => setActiveGenre(genre.id)}
       >

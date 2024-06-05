@@ -36,17 +36,21 @@
     font-size: 18px;
     color: #fff;
     background-color: transparent;
-    border-bottom: 1px solid #fff;
+    // border: 1px solid #fff;
     // border-right: none;
     letter-spacing: 2px;
+  }
+  input:focus {
+    outline: none;
   }
   .searchIcon {
     padding: 10px;
     height: 3rem;
     font-size: 18px;
     color: #fff;
-    border-bottom: 1px solid #fff;
-    // border-left: none;
+    cursor: pointer;
+    border: 1px solid gray;
+    border-left: none;
     // background-color: #fff;
   }
   .closeIcon {

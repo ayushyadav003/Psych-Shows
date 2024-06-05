@@ -5,16 +5,23 @@ import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { currentMovie } from "../../redux/features/movieDetailSlice";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 function Movies({ movies, pageType }) {
   const router = useRouter();
+  const [moviesList, setMoviesList] = useState([]);
+  const page = parseInt(router?.query?.slug || "1", 10);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    setMoviesList(movies);
+  }, [movies]);
 
   return (
     <>
       <div className={styles.movieContainer}>
-        {movies
-          ? movies.map((movie, i) => {
+        {moviesList
+          ? moviesList.map((movie, i) => {
               const poster = movie.poster_path || movie.backdrop_path;
               const title =
                 movie?.title ||
@@ -33,7 +40,7 @@ function Movies({ movies, pageType }) {
                 >
                   <div className={styles.card}>
                     <Image
-                      src={`https://image.tmdb.org/t/p/w500/${poster}`}
+                      src={`https://image.tmdb.org/t/p/w500${poster}`}
                       alt={title}
                       width="250"
                       height="250"
@@ -64,7 +71,11 @@ function Movies({ movies, pageType }) {
             count={500}
             variant="outlined"
             shape="rounded"
-            onChange={(event, value) => router.push(`/${pageType}/${value}`)}
+            page={page}
+            onChange={(event, value) => {
+              setMoviesList([]);
+              router.push(`/${pageType}/${value}`);
+            }}
           />
         </div>
       )}

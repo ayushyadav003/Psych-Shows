@@ -36,8 +36,8 @@ function MovieCarousel({ activeGenre, type, other, heading }) {
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 2.6,
-      slidesToSlide: 2.6,
+      items: 3,
+      slidesToSlide: 3,
     },
   };
 
