@@ -4,30 +4,30 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  /* background: #0f0c29;
-  background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
-  background: linear-gradient(to right, #24243e, #302b63, #0f0c29); */
   background: #000000; /* fallback for old browsers */
-  /* background: -webkit-linear-gradient(
-    to right,
-    #434343,
-    #000000
-  ); 
-  background: linear-gradient(
-    to right,
-    #434343,
-    #000000
-  );  */
-
   color: aliceblue;
 }
 
-body div::-webkit-scrollbar-track {
-  background-color: darkgrey;
+body div::-webkit-scrollbar {
+  width: 10px; /* width of the scrollbar */
+  display: none;
+  height: 10px; /* height of the scrollbar */
 }
+
+body div::-webkit-scrollbar-track {
+  background-color: darkgrey; /* color of the scrollbar track */
+  border-radius: 10px; /* rounded corners */
+  margin: 4px 0; /* margin for spacing */
+}
+
 body div::-webkit-scrollbar-thumb {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: #d4aa70;
+  background-color: #d4aa70; /* color of the scrollbar thumb */
+  border-radius: 10px; /* rounded corners */
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); /* shadow inside the thumb */
+}
+
+body div::-webkit-scrollbar-thumb:hover {
+  background-color: #a2834e; /* darker color on hover */
 }
 
 a {

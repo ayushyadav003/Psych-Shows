@@ -86,7 +86,6 @@ const tvGenres = [
 export default function Home() {
   const [activeGenre, setActiveGenre] = useState(35);
   const [activeTvGenre, setActiveTvGenre] = useState(10759);
-  // const [leatestMovie, setLatestMovie] = useState([]);
 
   return (
     <div>
@@ -101,10 +100,6 @@ export default function Home() {
           property="og:title"
           content={"pikasshow - free movies and tv shows"}
         />
-        {/* <meta
-          name="keywords"
-          content="movies,watch movies online,watchnow, tvShows, freemovies, latestmovies, netflix, prime, hulu, disney+hotstar"
-        /> */}
         <meta content="website" property="og:type" />
         <meta name="robots" content="index" />
         <meta http-equiv="content-language" content="en" />
@@ -113,19 +108,6 @@ export default function Home() {
 
       <main>
         <div className={styles.homeContainer}>
-          {/* <Heading heading="Latest" />
-          <div className={styles.indexCarouselContainer}>
-            <Movie movie={leatestMovie} />
-          </div> */}
-          {/* <div className={styles.homeCarouselSection}>
-            <div className={styles.indexCarouselContainer}>
-              <MovieCarousel
-                other={true}
-                activeGenre="top_rated"
-                heading="Top Rated"
-              />
-            </div>
-          </div> */}
           <div className={styles.homeCarouselSection}>
             <div className={styles.indexCarouselContainer}>
               <MovieCarousel
@@ -188,12 +170,3 @@ export default function Home() {
     </div>
   );
 }
-
-// export async function getServerSideProps() {
-//   // Fetch data from external API
-//   const res = await axios(`https://.../data`);
-//   const data = await res.json();
-
-//   // Pass data to the page via props
-//   return { props: { data } };
-// }

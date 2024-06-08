@@ -1,25 +1,26 @@
 .headingContainer {
   display: flex;
+  justify-content: space-between;
   position: relative;
+  padding: 0 2rem 0 1rem;
   h2 {
-    margin: 0 1rem 0 1rem;
+    margin: 0 1rem 0 0;
     font-size: 1.4em;
   }
-  // .inner1 {
-  //   height: 1px;
-  //   width: 80%;
-  //   margin: auto;
-  //   background-color: aliceblue;
-  // }
-  // .inner2 {
-  //   z-index: 999;
-  //   position: absolute;
-  //   bottom: -4.9vh;
-  //   left: 45%;
-  //   h2 {
-  //     color: #f5c518;
-  //     background-color: #0f0c29;
-  //     padding: 5px 10px;
-  //   }
-  // }
+  .arrowWrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    .arrow {
+      background-color: aliceblue;
+      color: #000;
+      font-size: 2em;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    .arrow:hover {
+      background-color: gray;
+      color: #fff;
+    }
+  }
 }

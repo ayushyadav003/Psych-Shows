@@ -1,8 +1,7 @@
 import { Skeleton } from "@mui/material";
-import { padding } from "@mui/system";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useDispatch } from "react-redux";
@@ -17,29 +16,7 @@ function MovieCarousel({ activeGenre, type, other, heading }) {
   const [loader, setLoader] = useState();
   const dispatch = useDispatch();
   const router = useRouter();
-
-  const responsive = {
-    superLargeDesktop: {
-      breakpoint: { max: 4000, min: 3000 },
-      items: 8,
-      slidesToSlide: 3,
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 7,
-      slidesToSlide: 3,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 5,
-      slidesToSlide: 3,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 3,
-      slidesToSlide: 3,
-    },
-  };
+  const sliderRef = useRef(null);
 
   useEffect(() => {
     getMoviesByGenre();
@@ -56,7 +33,18 @@ function MovieCarousel({ activeGenre, type, other, heading }) {
       setLoader(false);
     }
   };
-  console.log(allMovieData);
+
+  const slideLeft = () => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollLeft -= 700;
+    }
+  };
+
+  const slideRight = () => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollLeft += 700;
+    }
+  };
 
   return (
     <div style={{ margin: "0" }}>
@@ -79,13 +67,14 @@ function MovieCarousel({ activeGenre, type, other, heading }) {
       {loader ? (
         <Skeleton variant="rectangular" width={300} height={50} />
       ) : (
-        <Heading heading={heading} />
+        <Heading
+          heading={heading}
+          slideLeft={slideLeft}
+          slideRight={slideRight}
+        />
       )}
 
-      <Carousel
-        responsive={responsive}
-        removeArrowOnDeviceType={["tablet", "mobile"]}
-      >
+      <div className={styles.slider} ref={sliderRef}>
         {moviesByGenre
           ? moviesByGenre.map((movie, i) => {
               const title =
@@ -112,11 +101,7 @@ function MovieCarousel({ activeGenre, type, other, heading }) {
                       loading="lazy"
                     />
                     <div className={styles.inner}>
-                      <div style={{ display: "flex" }}>
-                        <span>
-                          <h2>{title}</h2>
-                        </span>
-                      </div>
+                      <h2>{title}</h2>
                     </div>
                   </div>
                 </div>
@@ -131,7 +116,7 @@ function MovieCarousel({ activeGenre, type, other, heading }) {
                 </div>
               </div>
             ))}
-      </Carousel>
+      </div>
     </div>
   );
 }

@@ -1,14 +1,17 @@
 import React from "react";
 import styles from "./heading.module.scss";
+import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
 
-function Heading({ heading }) {
+function Heading({ heading, slideLeft, slideRight }) {
   return (
     <>
       {heading && (
         <div className={styles.headingContainer}>
-          {/* <div className={styles.inner1}></div>
-          <div className={styles.inner2}> */}
           <h2>{heading}</h2>
+          <div className={styles.arrowWrapper}>
+            <KeyboardArrowLeft className={styles.arrow} onClick={slideLeft} />
+            <KeyboardArrowRight className={styles.arrow} onClick={slideRight} />
+          </div>
           {/* </div> */}
         </div>
       )}
