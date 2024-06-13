@@ -86,8 +86,8 @@ function ShowDetailPage() {
               ref={videoRef}
               src={
                 slug1 !== "tv"
-                  ? `https://vidsrc.xyz/embed/${showVideo}/`
-                  : `https://vidsrc.xyz/embed/${showVideo}/${
+                  ? `https://vidsrc.in/embed/${showVideo}/`
+                  : `https://vidsrc.in/embed/${showVideo}/${
                       selectedSeason + 1
                     }-${selectedEpisode}/`
               }
